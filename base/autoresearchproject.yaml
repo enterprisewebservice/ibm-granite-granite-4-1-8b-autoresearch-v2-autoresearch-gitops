@@ -32,6 +32,14 @@ spec:
     workstation: ibm-granite-granite-4-1-8b-autoresearch-v2-experimenter
 
   knowledgeBase: ibm-granite-granite-4-1-8b-autoresearch-v2-wiki
+
+  # Required by the AutoResearchProject CRD — references the
+  # cluster's pre-provisioned Tekton pipeline that runs each
+  # training round. (Operator installs it under agent-office.)
+  pipelineRef:
+    name: autoresearch-qlora-train-eval
+    namespace: agent-office
+
   adapterStorage:
     modelRegistry:
       registryInstance: autoresearch-registry
