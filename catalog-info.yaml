@@ -21,6 +21,7 @@ metadata:
     backstage.io/kubernetes-id: ibm-granite-granite-4-1-8b-autoresearch-v2
     agentoffice.ai/base-model: ibm-granite/granite-4.1-8b
     agentoffice.ai/dataset: ise-uiuc/Magicoder-OSS-Instruct-75K
+    agentoffice.ai/agent-kind: autoresearch
   tags:
     - ai
     - autoresearch
