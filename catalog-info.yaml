@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: ibm-granite-granite-4-1-8b-autoresearch-v2
+  title: AutoResearch [Registry] ibm-granite/granite-4.1-8b @ main v2
+  description: Karpathy autoresearch loop fine-tuning huggingface://ibm-granite/granite-4.1-8b on ise-uiuc/Magicoder-OSS-Instruct-75K
+  links:
+    - url: "https://devspaces.apps.salamander.aimlworkbench.com/#https://github.com/enterprisewebservice/ibm-granite-granite-4-1-8b-autoresearch-v2-autoresearch-gitops"
+      title: "Open GitOps in Dev Spaces"
+      icon: catalog
+      type: devspaces
+    - url: https://github.com/enterprisewebservice/ibm-granite-granite-4-1-8b-autoresearch-v2-wiki
+      title: "Open Wiki on GitHub"
+      icon: catalog
+    - url: "https://devspaces.apps.salamander.aimlworkbench.com/#https://github.com/enterprisewebservice/ibm-granite-granite-4-1-8b-autoresearch-v2-wiki"
+      title: "Edit Wiki in Dev Spaces"
+      icon: catalog
+      type: devspaces
+  annotations:
+    argocd/app-name: ibm-granite-granite-4-1-8b-autoresearch-v2-autoresearch
+    backstage.io/kubernetes-id: ibm-granite-granite-4-1-8b-autoresearch-v2
+    agentoffice.ai/base-model: ibm-granite/granite-4.1-8b
+    agentoffice.ai/dataset: ise-uiuc/Magicoder-OSS-Instruct-75K
+  tags:
+    - ai
+    - autoresearch
+    - qlora
+    - openshift
+spec:
+  type: ai-loop
+  owner: user:default/deanpeterson
+  lifecycle: experimental

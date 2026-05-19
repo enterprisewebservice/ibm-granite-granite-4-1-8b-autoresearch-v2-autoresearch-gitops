@@ -1,0 +1,37 @@
+apiVersion: agentoffice.ai/v1alpha1
+kind: AutoResearchProject
+metadata:
+  name: ibm-granite-granite-4-1-8b-autoresearch-v2
+  namespace: agent-office
+  labels:
+    app.kubernetes.io/managed-by: agent-office
+    agentoffice.ai/role: autoresearch
+spec:
+  displayName: AutoResearch [Registry] ibm-granite/granite-4.1-8b @ main v2
+  validationMode: false
+
+  baseModel:
+    huggingfaceId: ibm-granite/granite-4.1-8b
+    revision: main
+
+  trainingData:
+    huggingfaceDataset: ise-uiuc/Magicoder-OSS-Instruct-75K
+    split: train
+    sampleCount: 2000
+
+  eval:
+    metric: eval_loss
+    direction: minimize
+
+  loopConfig:
+    cadenceMinutes: 30
+    maxConcurrentRuns: 1
+    maxTotalExperiments: 100
+
+  experimenter:
+    workstation: ibm-granite-granite-4-1-8b-autoresearch-v2-experimenter
+
+  knowledgeBase: ibm-granite-granite-4-1-8b-autoresearch-v2-wiki
+  adapterStorage:
+    modelRegistry:
+      registryInstance: autoresearch-registry

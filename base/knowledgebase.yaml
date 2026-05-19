@@ -1,0 +1,24 @@
+apiVersion: agentoffice.ai/v1alpha1
+kind: KnowledgeBase
+metadata:
+  name: ibm-granite-granite-4-1-8b-autoresearch-v2-wiki
+  namespace: agent-office
+  labels:
+    app.kubernetes.io/managed-by: agent-office
+    agentoffice.ai/autoresearch-project: ibm-granite-granite-4-1-8b-autoresearch-v2
+spec:
+  displayName: "AutoResearch [Registry] ibm-granite/granite-4.1-8b @ main v2 Wiki"
+  description: |
+    Per-project knowledge base for the ibm-granite-granite-4-1-8b-autoresearch-v2 QLoRA
+    fine-tuning loop. The experimenter agent reads log/log.md
+    before proposing each new round and writes proposals/round-N.md
+    + results/round-N.md after each cycle.
+  gatewayRef:
+    name: research-gateway
+  gitMirror:
+    branch: main
+    cadence: "*/5 * * * *"
+    credentialsSecretRef: ibm-granite-granite-4-1-8b-autoresearch-v2-wiki-git-token
+    url: https://github.com/enterprisewebservice/ibm-granite-granite-4-1-8b-autoresearch-v2-wiki
+  storage:
+    size: 5Gi
