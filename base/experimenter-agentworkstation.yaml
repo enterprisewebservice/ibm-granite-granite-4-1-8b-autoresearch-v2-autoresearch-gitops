@@ -3,6 +3,14 @@ kind: AgentWorkstation
 metadata:
   name: ibm-granite-granite-4-1-8b-autoresearch-v2-experimenter
   namespace: agent-office
+  annotations:
+    # Tells the operator's /binders/.../gitops-source endpoint which
+    # file in which repo holds this AW's manifest, so the
+    # agentworkstation-binders RHDH plugin can open a PR against it
+    # when the user clicks Save on a binding change.
+    agentoffice.ai/gitops-source-repo: enterprisewebservice/ibm-granite-granite-4-1-8b-autoresearch-v2-autoresearch-gitops
+    agentoffice.ai/gitops-source-path: base/experimenter-agentworkstation.yaml
+    agentoffice.ai/gitops-source-branch: main
   labels:
     app.kubernetes.io/managed-by: agent-office
     agentoffice.ai/agent: ibm-granite-granite-4-1-8b-autoresearch-v2-experimenter
