@@ -22,6 +22,12 @@ metadata:
     agentoffice.ai/base-model: ibm-granite/granite-4.1-8b
     agentoffice.ai/dataset: ise-uiuc/Magicoder-OSS-Instruct-75K
     agentoffice.ai/agent-kind: autoresearch
+    # Tells the agentworkstation-binders RHDH plugin which AgentWorkstation
+    # CR to manage bindings for. This entity is the AutoResearchProject
+    # (parent project); the actual agent doing the work is the
+    # experimenter AW (same name + -experimenter suffix, per the AutoResearchProject's
+    # spec.experimenter.workstation field).
+    agentoffice.ai/agentworkstation-name: ibm-granite-granite-4-1-8b-autoresearch-v2-experimenter
   tags:
     - ai
     - autoresearch
